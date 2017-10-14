@@ -1,5 +1,9 @@
 package de.thm.se.calculator;
 	
+
+import de.thm.se.calculator.calc.Decimal;
+import de.thm.se.calculator.calc.Operator;
+import de.thm.se.calculator.calc.Power;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -18,10 +22,7 @@ public class Main extends Application {
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
-		}
-	}
 	
-	public static void main(String[] args) {
-		launch(args);
+	public static void main(String[] args) { }
+	
 	}
-}

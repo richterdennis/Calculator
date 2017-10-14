@@ -1,0 +1,151 @@
+/*
+ *      linear-gradient(#F6D8CE, #FA5858),
+        linear-gradient(#F8E6E0 0%, #F6E3CE 20%, #FE2E2E 80%, #DF0101 100%),
+        linear-gradient(#F8E6E0, #FE2E2E);
+        * 
+        * red button
+        * 
+        linear-gradient(#BCF5A9, #64FE2E),
+        linear-gradient(#F1F8E0 0%, #D0F5A9 20%, #64FE2E 80%, #01DF01 100%),
+        linear-gradient(#ECF8E0, #01DF01);
+        * 
+        * green button
+ */
+
+
+.button{
+    -fx-background-color: 
+        #2E2E2E,
+        rgba(0,0,0,0.05),
+        linear-gradient(#dcca8a, #c7a740),
+        linear-gradient(#f9f2d6 0%, #f4e5bc 20%, #e6c75d 80%, #e2c045 100%),
+        linear-gradient(#f6ebbe, #e6c34d);
+    -fx-background-insets: 0,9 9 8 9,9,10,11;
+    -fx-background-radius: 50;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 25px;
+    -fx-font-weight:bold;
+    -fx-text-fill: #311c09;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+.button:hover{
+    -fx-background-color: 
+        #FE2E2E,
+        rgba(0,0,0,0.05),
+        linear-gradient(#dcca8a, #c7a740),
+        linear-gradient(#f9f2d6 0%, #f4e5bc 20%, #e6c75d 80%, #e2c045 100%),
+        linear-gradient(#f6ebbe, #e6c34d);
+    -fx-background-insets: 0,9 9 8 9,9,10,11;
+    -fx-background-radius: 50;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 25px;
+    -fx-font-weight:bold;
+    -fx-text-fill: #FE2E2E;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+.button Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(255,255,255,0.5) , 0, 0.0 , 0 , 1);
+}
+
+	
+.impButton{
+    -fx-background-color: 
+        #2E2E2E,
+        rgba(0,0,0,0.05),
+        linear-gradient(#EFEFFB, #2E2EFE),
+        linear-gradient(#EFEFFB 0%, #A9BCF5 20%, #5882FA 80%, #013ADF 100%),
+        linear-gradient(#EFEFFB, #013ADF);
+    -fx-background-insets: 0,9 9 8 9,9,10,11;
+    -fx-background-radius: 50;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 25px;
+    -fx-font-weight:bold;
+    -fx-text-fill: #311c09;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+.impButton:hover{
+	 -fx-background-color: 
+        #FE2E2E,
+        rgba(0,0,0,0.05),
+        linear-gradient(#EFEFFB, #2E2EFE),
+        linear-gradient(#EFEFFB 0%, #A9BCF5 20%, #5882FA 80%, #013ADF 100%),
+        linear-gradient(#EFEFFB, #013ADF);
+    -fx-background-insets: 0,9 9 8 9,9,10,11;
+    -fx-background-radius: 50;
+    -fx-font-family: "Helvetica";
+    -fx-font-weight:bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: #FE2E2E;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+	
+}
+
+.semImpButton{
+    -fx-background-color: 
+        #2E2E2E,
+        rgba(0,0,0,0.05),
+        linear-gradient(#EFEFFB, #2E2EFE),
+        linear-gradient(#EFEFFB 0%, #A9BCF5 20%, #5882FA 80%, #013ADF 100%),
+        linear-gradient(#EFEFFB, #013ADF);
+    -fx-background-insets: 0,9 9 8 9,9,10,11;
+    -fx-background-radius: 50;
+    -fx-font-family: "Helvetica";
+    -fx-font-weight:bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: #311c09;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+.semImpButton:hover{
+	-fx-background-color: 
+        #FE2E2E,
+        rgba(0,0,0,0.05),
+        linear-gradient(#EFEFFB, #2E2EFE),
+        linear-gradient(#EFEFFB 0%, #A9BCF5 20%, #5882FA 80%, #013ADF 100%),
+        linear-gradient(#EFEFFB, #013ADF);
+    -fx-background-insets: 0,9 9 8 9,9,10,11;
+    -fx-background-radius: 50;
+    -fx-font-family: "Helvetica";
+    -fx-font-weight:bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: #FE2E2E;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+	
+}
+.numbers{
+    -fx-background-color: 
+        #2E2E2E,
+        rgba(0,0,0,0.05),
+        linear-gradient(#FFFFFF, #848484),
+        linear-gradient(#FFFFFF 0%, #999898 20%, #828282 80%, #4F4F4F 100%),
+        linear-gradient(#FFFFFF, #383737);
+    -fx-background-insets: 0,9 9 8 9,9,10,11;
+    -fx-background-radius: 50;
+    -fx-font-family: "Helvetica";
+    -fx-font-weight:bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: #311c09;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+.numbers:hover{
+    -fx-background-color: 
+        #FE2E2E,
+        rgba(0,0,0,0.05),
+        linear-gradient(#FFFFFF, #848484),
+        linear-gradient(#FFFFFF 0%, #999898 20%, #828282 80%, #4F4F4F 100%),
+        linear-gradient(#FFFFFF, #383737);
+    -fx-background-insets: 0,9 9 8 9,9,10,11;
+    -fx-background-radius: 50;
+    -fx-font-family: "Helvetica";
+    -fx-font-weight:bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: #FE2E2E;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+
+
