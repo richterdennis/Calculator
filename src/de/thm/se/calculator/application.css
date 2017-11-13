@@ -25,9 +25,8 @@
     -fx-background-color: black, white, white;
     -fx-background-insets: 0, 1, 2;
     -fx-background-radius: 5, 4, 3;
-    -fx-font-family: "Helvetica";
+    -fx-font-family: serif;
     -fx-font-size: 25px;
-    -fx-font-weight:bold;
     -fx-text-fill: #311c09;
     -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
 }
@@ -36,8 +35,8 @@
     -fx-background-color: black, white, #eaeaea;
     -fx-background-insets: 1, 5, 3;
     -fx-background-radius: 5, 4, 3;
-    -fx-font-family: "Helvetica";
-    -fx-font-size: 37px;
+    -fx-font-family: serif;
+    -fx-font-size: 28px;
     -fx-font-weight:bold;
     -fx-text-fill: black;
     -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
@@ -48,7 +47,7 @@
     -fx-background-insets: 1, 5, 3;
     -fx-background-radius: 5, 4, 3;
     -fx-font-family: "Helvetica";
-    -fx-font-size: 37px;
+    -fx-font-size: 31px;
     -fx-font-weight:bold;
     -fx-text-fill: white;
     -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
