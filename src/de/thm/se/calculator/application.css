@@ -1,1 +1,57 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/*
+ *      linear-gradient(#F6D8CE, #FA5858),
+        linear-gradient(#F8E6E0 0%, #F6E3CE 20%, #FE2E2E 80%, #DF0101 100%),
+        linear-gradient(#F8E6E0, #FE2E2E);
+        * 
+        * red button
+        * 
+        linear-gradient(#BCF5A9, #64FE2E),
+        linear-gradient(#F1F8E0 0%, #D0F5A9 20%, #64FE2E 80%, #01DF01 100%),
+        linear-gradient(#ECF8E0, #01DF01);
+        * 
+        * green button
+ */
+ 
+ /* 	yellow button
+  *         #2E2E2E,
+        rgba(0,0,0,0.05),
+        linear-gradient(#dcca8a, #c7a740),
+        linear-gradient(#f9f2d6 0%, #f4e5bc 20%, #e6c75d 80%, #e2c045 100%),
+        linear-gradient(#f6ebbe, #e6c34d);
+  */
+
+
+.button{
+    -fx-background-color: black, white, white;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 5, 4, 3;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 25px;
+    -fx-font-weight:bold;
+    -fx-text-fill: #311c09;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+.button:hover{
+    -fx-background-color: black, white, #eaeaea;
+    -fx-background-insets: 1, 5, 3;
+    -fx-background-radius: 5, 4, 3;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 37px;
+    -fx-font-weight:bold;
+    -fx-text-fill: black;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+.button Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(255,255,255,0.5) , 0, 0.0 , 0 , 1);
+}
+
+.tilePane{
+  	-fx-padding: 10, 10, 10, 10;
+    -fx-hgap: 4;
+    -fx-vgap: 4;
+}
+
+
+
