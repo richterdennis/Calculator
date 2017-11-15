@@ -3,30 +3,35 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.thm.se.calculator.Controller">
-   <TextArea maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="268.0" prefWidth="1366.0" />
+   <Label fx:id="resultLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1366.0" styleClass="resultLabel" stylesheets="@application.css" textAlignment="JUSTIFY">
+      <font>
+         <Font size="25.0" />
+      </font></Label>
+   <TextField fx:id="textField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="216.0" prefWidth="1366.0" styleClass="textField" stylesheets="@application.css" />
    <TilePane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumns="7" prefHeight="500.0" prefRows="6" prefTileHeight="77.0" prefTileWidth="188.0" prefWidth="1366.0" styleClass="tilePane" stylesheets="@application.css" VBox.vgrow="NEVER">
       <children>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="SIN" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#sin" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="SIN" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font></Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="COS" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#cos" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="COS" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="TAN" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#tan" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="TAN" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="C" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#clear" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="C" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
@@ -41,7 +46,7 @@
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="AC" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#del" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="AC" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
@@ -61,52 +66,107 @@
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="7" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#seven" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="7" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="8" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#eight" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="8" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="9" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#nine" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="9" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button id="operators" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="÷" textAlignment="CENTER">
+         <Button id="operators" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#divide" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="÷" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="e" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#e" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="e" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="π" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#pi" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="π" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="x^y" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#power" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="x^y" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="4" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#four" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="4" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="5" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#five" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="5" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="6" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#six" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="6" textAlignment="CENTER">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#subtract" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="-" textAlignment="CENTER">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#ln" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="LN" textAlignment="CENTER">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#log" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="LOG" textAlignment="CENTER">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#fracture" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="x/y" textAlignment="CENTER">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#one" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="1" textAlignment="CENTER">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#two" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="2" textAlignment="CENTER">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#three" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="3" textAlignment="CENTER">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#add" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="+" textAlignment="CENTER">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#root" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="x√y" textAlignment="CENTER">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#power_2" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="x²" textAlignment="CENTER">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#sroot" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="√" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
@@ -116,62 +176,7 @@
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="LN" textAlignment="CENTER">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="LOG" textAlignment="CENTER">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="x/y" textAlignment="CENTER">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="1" textAlignment="CENTER">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="2" textAlignment="CENTER">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="3" textAlignment="CENTER">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="+" textAlignment="CENTER">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="x√y" textAlignment="CENTER">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="x²" textAlignment="CENTER">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="√" textAlignment="CENTER">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="-" textAlignment="CENTER">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="0" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#zero" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="0" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
@@ -186,7 +191,7 @@
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="\%" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#percent" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="\%" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
@@ -196,7 +201,7 @@
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="n!" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#factorial" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="n!" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
@@ -216,7 +221,7 @@
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="=" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#equals" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="=" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>

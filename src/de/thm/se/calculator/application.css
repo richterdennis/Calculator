@@ -63,5 +63,13 @@
     -fx-vgap: 4;
 }
 
+.textField{
+	-fx-font-size: 80px;
+}
+
+.resultLabel{
+	-fx-font-size: 35px;
+}
+
 
 
