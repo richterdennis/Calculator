@@ -1,5 +1,8 @@
 package de.thm.se.calculator;
 
+import de.thm.se.calculator.calc.Chain;
+import de.thm.se.calculator.calc.Decimal;
+import de.thm.se.calculator.calc.Operator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -12,6 +15,12 @@ public class Controller {
 	
 	@FXML
 	Label resultLabel;
+	
+	// Collect the user input and create a calculatable later
+	StringBuilder input = new StringBuilder();
+	
+	// This is the main calculatable
+	Chain mainCalculatable = new Chain();
 	
 	public void shift() {
 		System.out.println("SHIFT pressed");
@@ -35,66 +44,88 @@ public class Controller {
 
 	@FXML
 	public void zero() {
+		input.append(0);
+		
 		textField.appendText("0");
 		System.out.println("ZERO pressed");
 	}
 
 	@FXML
 	public void one() {
+		input.append(1);
+		
 		textField.appendText("1");
 		System.out.println("ONE pressed");
 	}
 
 	@FXML
 	public void two() {
+		input.append(2);
+		
 		textField.appendText("2");
 		System.out.println("TWO pressed");
 	}
 
 	@FXML
 	public void three() {
+		input.append(3);
+		
 		textField.appendText("3");
 		System.out.println("THREE pressed");
 	}
 
 	@FXML
 	public void four() {
+		input.append(4);
+		
 		textField.appendText("4");
 		System.out.println("FOUR pressed");
 	}
 
 	@FXML
 	public void five() {
+		input.append(5);
+		
 		textField.appendText("5");
 		System.out.println("FIVE pressed");
 	}
 	
 	@FXML
 	public void six() {
+		input.append(6);
+		
 		textField.appendText("6");
 		System.out.println("SIX pressed");
 	}
 	
 	@FXML	
 	public void seven() {
+		input.append(7);
+		
 		textField.appendText("7");
 		System.out.println("SEVEN pressed");
 	}
 
 	@FXML
 	public void eight() {
+		input.append(8);
+		
 		textField.appendText("8");
 		System.out.println("EIGHT pressed");
 	}
 
 	@FXML
 	public void nine() {
+		input.append(9);
+		
 		textField.appendText("9");
 		System.out.println("NINE pressed");
 	}
 
 	@FXML
 	public void comma() {
+		input.append('.');
+		
 		textField.appendText(".");
 		System.out.println("COMMA pressed");
 	}
@@ -107,6 +138,9 @@ public class Controller {
 
 	@FXML
 	public void clear() {
+		input.setLength(0);
+		mainCalculatable.clear();
+		
 		textField.clear();
 		System.out.println("CLEAR pressed");
 	}
@@ -118,30 +152,57 @@ public class Controller {
 
 	@FXML
 	public void multiply() {
+		mainCalculatable.addLink(new Decimal(input.toString()));
+		mainCalculatable.addOperator(Operator.MULTIPLY);
+		input.setLength(0);
+		
 		textField.appendText("*");
 		System.out.println("MULTIPLY pressed");
 	}
 
 	@FXML
 	public void divide() {
+		mainCalculatable.addLink(new Decimal(input.toString()));
+		mainCalculatable.addOperator(Operator.DEVIDE);
+		input.setLength(0);
+		
 		textField.appendText("/");
 		System.out.println("DIVIDE pressed");
 	}
 		
 	@FXML
 	public void add() {
+		mainCalculatable.addLink(new Decimal(input.toString()));
+		mainCalculatable.addOperator(Operator.PLUS);
+		input.setLength(0);
+		
 		textField.appendText("+");
 		System.out.println("ADD pressed");
 	}
 
 	@FXML
 	public void subtract() {
+		mainCalculatable.addLink(new Decimal(input.toString()));
+		mainCalculatable.addOperator(Operator.MINUS);
+		input.setLength(0);
+		
 		textField.appendText("-");
 		System.out.println("SUBTRACT pressed");
 	}
 
 	@FXML
 	public void equals() {
+		mainCalculatable.addLink(new Decimal(input.toString()));
+		
+		String calc = mainCalculatable.toString();
+		String result = mainCalculatable.getValue().toString();
+		
+		input.setLength(0);
+		mainCalculatable.clear();
+		
+		System.out.println(calc);
+		System.out.println(result);
+		
 		String text = textField.getText();
 		resultLabel.setText(text);
 		System.out.println("EQUALS pressed");

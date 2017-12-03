@@ -75,6 +75,14 @@ public class Chain implements Calculatable {
 		
 		return this;
 	}
+	
+	public void clear() {
+		this.operators.clear();
+		this.operators.add(Operator.PLUS);
+		
+		this.links.clear();
+		this.links.add(new Decimal(0));
+	}
 
 	@Override
 	public BigDecimal getValue() {
