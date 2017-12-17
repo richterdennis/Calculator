@@ -1,13 +1,17 @@
 package de.thm.se.calculator;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import de.thm.se.calculator.calc.Chain;
 import de.thm.se.calculator.calc.Decimal;
 import de.thm.se.calculator.calc.Operator;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class Controller {
+public class Controller implements Initializable{
 	
 	// Parse TextField
 	@FXML 
@@ -15,6 +19,19 @@ public class Controller {
 	
 	@FXML
 	Label resultLabel;
+
+	@Override
+	public void initialize(URL url, ResourceBundle resourceBundle) {
+	      /* textField.textProperty().addListener(new ChangeListener<String>() {
+	  
+	    	   @Override
+	           public void changed(ObservableValue<? extends String> observableValue, String s, String s2) {
+	    		   System.out.println(s2); 	
+	    		   if(s2.matches("-?\\d+")){ // any positive or negetive integer or not!
+	    			   input.append(Integer.parseInt(s2));
+	    		   }}
+	        });*/
+	    }
 	
 	// Collect the user input and create a calculatable later
 	StringBuilder input = new StringBuilder();
@@ -22,7 +39,7 @@ public class Controller {
 	// This is the main calculatable
 	Chain mainCalculatable = new Chain();
 	
-	public void shift() {
+/* public void shift() {
 		System.out.println("SHIFT pressed");
 	}
 
@@ -41,7 +58,7 @@ public class Controller {
 	public void right() {
 		System.out.println("RIGHT pressed");
 	}
-
+*/
 	@FXML
 	public void zero() {
 		input.append(0);
@@ -132,7 +149,10 @@ public class Controller {
 
 	@FXML
 	public void plus_minus() {
-		textField.appendText("-");
+		if (input.length() == 0){
+			input.append("-");
+			textField.appendText("-");
+		}
 		System.out.println("PLUS_MINUS pressed");
 	}
 
@@ -148,6 +168,10 @@ public class Controller {
 	@FXML
 	public void del() {
 		System.out.println("DEL pressed");
+		if (input.length() > 0) {
+            input.setLength(input.length() - 1);
+            textField.deleteText(textField.getLength() - 1, textField.getLength());
+        }
 	}
 
 	@FXML
@@ -203,8 +227,9 @@ public class Controller {
 		System.out.println(calc);
 		System.out.println(result);
 		
-		String text = textField.getText();
-		resultLabel.setText(text);
+		resultLabel.setText(calc);
+		textField.setText(result);
+		input.append(result);
 		System.out.println("EQUALS pressed");
 	}
 
@@ -240,10 +265,14 @@ public class Controller {
 	}
 
 	public void pleft() {
+		/* input.append('[');
+		textField.appendText("["); */
 		System.out.println("PLEFT pressed");
 	}
 
 	public void pright() {
+		/* input.append(']');
+		textField.appendText("]"); */
 		System.out.println("PRIGHT pressed");
 	}
 
@@ -255,8 +284,9 @@ public class Controller {
 
 	@FXML
 	public void sin() {
-		textField.appendText("sin");
+		textField.appendText("sin(");
 		System.out.println("SIN pressed");
+		
 	}
 
 	@FXML
@@ -305,5 +335,13 @@ public class Controller {
 	public void ln() {
 		textField.appendText("ln");
 		System.out.println("LN pressed");
+	}
+	
+	@FXML
+	public void deg() {
+	}
+	
+	@FXML
+	public void rad() {
 	}
 }

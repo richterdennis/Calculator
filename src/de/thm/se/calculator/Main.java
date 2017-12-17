@@ -21,10 +21,8 @@ public class Main extends Application {
 			//root.setMaxWidth(visualBounds.getWidth());
 			VBox root = (VBox) FXMLLoader.load(getClass().getResource("GUI.fxml"));
 			root.setFillWidth(false);
-			Scene scene = new Scene(root,1920, 1080);
+			Scene scene = new Scene(root,1366, 768);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setFullScreen(true);
-			primaryStage.setMaximized(true);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
