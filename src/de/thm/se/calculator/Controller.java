@@ -1,18 +1,36 @@
 package de.thm.se.calculator;
 
+import java.util.Optional;
+
 import de.thm.se.calculator.calc.Chain;
 import de.thm.se.calculator.calc.Decimal;
+import de.thm.se.calculator.calc.Fracture;
 import de.thm.se.calculator.calc.Operator;
+import de.thm.se.calculator.calc.Power;
 import de.thm.se.calculator.calc.Trigonometric;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.util.Pair;
 
 public class Controller{
 	
 	// Parse TextField
 	@FXML 
 	TextField textField;
+	
+	@FXML
+	Button powerB;
+	
+	String bas;
+	String exp;
 	
 	String textFieldString ="";
 	
@@ -240,25 +258,75 @@ public class Controller{
 
 	@FXML
 	public void percent() {
+		Fracture per = new Fracture(new Decimal(input.toString()), new Decimal(100));
+		input.setLength(0);
+		input.append(per.getValue().toString());
+		
 		textField.appendText("%");
 		System.out.println("PERCENT pressed");
+		
+		/* Fracture per = new Fracture(new Decimal(input.toString()), new Decimal(100));
+		System.out.println(per);
+		System.out.println(input);
+		input.setLength(0);
+		System.out.println(input);
+		input.append(per.toString());
+		System.out.println(input);
+		textField.appendText("%");
+		System.out.println("Percent pressed"); */
 	}
 
 	@FXML
 	public void pi() {
+		//if (input.length() == 0 ) {
+		
+		input.append(Math.PI); 
+		/*}
+		else {
+			mainCalculatable.addLink(new Decimal(input.toString()));
+			mainCalculatable.addOperator(Operator.MULTIPLY);
+			input.setLength(0);
+			input.append(Math.PI);
+		} */
 		textField.appendText("π");
 		System.out.println("PI pressed");
 	}
 	
 	@FXML
 	public void e() {
+	//if (input.length() == 0 ) {
+		
+		input.append(Math.E); 
+		/*}
+		else {
+			mainCalculatable.addLink(new Decimal(input.toString()));
+			mainCalculatable.addOperator(Operator.MULTIPLY);
+			input.setLength(0);
+			input.append(Math.PI);
+		} */
 		textField.appendText("e");
-		System.out.println("E pressed");
+		System.out.println("e pressed");
+		
 	}
 
 	@FXML
 	public void power_e() {
-		System.out.println("POWER_E pressed");
+				// Create a temporary String to save the Value for the e
+				String temp = input.toString();
+				// Create new e-Object
+				Double exp = Math.exp(new Double(temp));
+				// Replace the Number with e-expression
+				temp = temp.replace(input.toString(), "e^" + temp);
+				// Delete the converted e out of the Textfield
+				textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
+				// Append the Sin-expression from temporary String into the Textfield
+				textField.appendText(temp);
+				// Clear Inputstring
+				input.setLength(0);
+				// Append the Value of the e-Expression to the Inputstring
+				input.append(exp.toString());
+				// Test Systemout
+				System.out.println(textFieldString);
 	}
 
 	@FXML
@@ -289,14 +357,22 @@ public class Controller{
 
 	@FXML
 	public void sin() {
+		// Create new Sin-Object
 		Trigonometric.Sin sinus = new Trigonometric.Sin(new Decimal(input.toString()));
+		// Create a temporary String to save the Value for the Sin
 		String temp = input.toString();
+		// Replace the Number with Sin-expression
 		temp = temp.replace(input.toString(), sinus.toString());
 		
+		// Delete the Converted Sin out of the Textfield
 		textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
+		// Append the Sin-expression from temporary String into the Textfield
 		textField.appendText(temp);
+		// Clear Inputstring
 		input.setLength(0);
+		// Append the Value of the Sin to the Inputstring
 		input.append(sinus.getValue().toString());
+		// Test Systemout
 		System.out.println(textFieldString);
 	}
 
@@ -327,28 +403,128 @@ public class Controller{
 		input.append(tangens.getValue().toString());
 		System.out.println(textFieldString);
 	}
+	
+	@FXML
+	public void arcsin() {
+		// Create new Sin-Object
+		Trigonometric.Arcsin arcsinus = new Trigonometric.Arcsin(new Decimal(input.toString()));
+		// Create a temporary String to save the Value for the Sin
+		String temp = input.toString();
+		// Replace the Number with Sin-expression
+		temp = temp.replace(input.toString(), arcsinus.toString());
+		
+		// Delete the Converted Sin out of the Textfield
+		textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
+		// Append the Sin-expression from temporary String into the Textfield
+		textField.appendText(temp);
+		// Clear Inputstring
+		input.setLength(0);
+		// Append the Value of the Sin to the Inputstring
+		input.append(arcsinus.getValue().toString());
+		// Test Systemout
+		System.out.println(textFieldString);
+	}
+	
+	@FXML
+	public void arccos() {
+		Trigonometric.Arccos arccosinus = new Trigonometric.Arccos(new Decimal(input.toString()));
+		String temp = input.toString();
+		temp = temp.replace(input.toString(), arccosinus.toString());
+		
+		textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
+		textField.appendText(temp);
+		input.setLength(0);
+		input.append(arccosinus.getValue().toString());
+		System.out.println(textFieldString);
+	}
+	
+	@FXML
+	public void arctan() {
+		Trigonometric.Arctan arctangens = new Trigonometric.Arctan(new Decimal(input.toString()));
+		textFieldString = textFieldString.replace(input.toString(), arctangens.toString());
+		
+		String temp = input.toString();
+		temp = temp.replace(input.toString(), arctangens.toString());
+		
+		textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
+		textField.appendText(temp);
+		input.setLength(0);
+		input.append(arctangens.getValue().toString());
+		System.out.println(textFieldString);
+		
+	}
+	
+	
 
 	@FXML
 	public void power() {
-		textField.appendText("^");
-		System.out.println("POWER pressed");
+		 Dialog<Pair<String, String>> dialog = new Dialog<>();
+		    dialog.setTitle("Power");
+
+		    // Set the button types.
+		    ButtonType loginButtonType = new ButtonType("OK", ButtonData.OK_DONE);
+		    dialog.getDialogPane().getButtonTypes().addAll(loginButtonType, ButtonType.CANCEL);
+
+		    GridPane gridPane = new GridPane();
+		    gridPane.setHgap(10);
+		    gridPane.setVgap(10);
+		    gridPane.setPadding(new Insets(20, 150, 10, 10));
+
+		    TextField from = new TextField();
+		    from.setPromptText("Basis");
+		    TextField to = new TextField();
+		    to.setPromptText("Exponent");
+
+		    gridPane.add(new Label("Basis"), 0, 0);
+		    gridPane.add(from, 0, 1);
+		    gridPane.add(new Label("Exponent"), 1, 0);
+		    gridPane.add(to, 1, 1);
+
+		    dialog.getDialogPane().setContent(gridPane);
+
+		    // Request focus on the username field by default.
+		    Platform.runLater(() -> from.requestFocus());
+
+		    // Convert the result to a username-password-pair when the login button is clicked.
+		    dialog.setResultConverter(dialogButton -> {
+		        if (dialogButton == loginButtonType) {
+		            return new Pair<>(from.getText(), to.getText());
+		        }
+		        return null;
+		    });
+
+		    Optional<Pair<String, String>> result = dialog.showAndWait();
+
+		    result.ifPresent(pair -> {
+		    	bas = pair.getKey();
+		    	exp = pair.getValue();
+		        System.out.println("From=" + pair.getKey() + ", To=" + pair.getValue());
+		    });
+		    
+		    Power pow = new Power(new Decimal(bas), new Decimal(exp));
+		    System.out.println(pow.toString());
+		    System.out.println(pow.getValue().toString());
+		    input.append(pow.getValue().toString());
+		    textField.appendText(pow.toString());
+		    
+		
 	}
 
 	@FXML
 	public void power_2() {
-		textField.appendText("²");
+		textField.appendText("Â²");
 		System.out.println("POWER_2 pressed");
 	}
 	
 	@FXML
 	public void root() {
-		textField.appendText("√");
+		textField.appendText("âˆš");
 		System.out.println("ROOT pressed");
 	}
 
 	@FXML
 	public void sroot() {
-		textField.appendText("√");
+		textField.appendText("âˆš");
 		System.out.println("SROOT pressed");
 	}
 
@@ -372,3 +548,20 @@ public class Controller{
 	public void rad() {
 	}
 }
+
+/* // Create a temporary String to save the Value for the e
+String temp = input.toString();
+// Create new e-Object
+Double exp = Math.exp(new Double(temp));
+// Replace the Number with e-expression
+temp = temp.replace(input.toString(), "e^" + temp);
+// Delete the converted e out of the Textfield
+textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
+// Append the Sin-expression from temporary String into the Textfield
+textField.appendText(temp);
+// Clear Inputstring
+input.setLength(0);
+// Append the Value of the e-Expression to the Inputstring
+input.append(exp.toString());
+// Test Systemout
+System.out.println(textFieldString); */

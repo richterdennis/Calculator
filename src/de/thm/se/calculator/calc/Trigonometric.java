@@ -13,7 +13,6 @@ public final class Trigonometric {
 		public Sin(Calculatable x) {
 			super(x);
 		}
-
 		@Override
 		public BigDecimal getValue() {
 			return new BigDecimal(Math.sin(getX().getValue().doubleValue()));
@@ -66,5 +65,65 @@ public final class Trigonometric {
 			return "tan(" + this.getX() + ")";
 		}
 	}
+	
+	public static class Arcsin extends AbstractCalculatable {
+		
+		public Arcsin() {
+			super();
+		}
+
+		public Arcsin(Calculatable x) {
+			super(x);
+		}
+		@Override
+		public BigDecimal getValue() {
+			return new BigDecimal(Math.asin(getX().getValue().doubleValue()));
+		}
+		
+		@Override
+		public String toString() {
+			return "arcsin(" + this.getX() + ")";
+		}
+	}
+
+public static class Arccos extends AbstractCalculatable {
+	
+	public Arccos() {
+		super();
+	}
+
+	public Arccos(Calculatable x) {
+		super(x);
+	}
+	@Override
+	public BigDecimal getValue() {
+		return new BigDecimal(Math.acos(getX().getValue().doubleValue()));
+	}
+	
+	@Override
+	public String toString() {
+		return "arccos(" + this.getX() + ")";
+	}
+}
+
+public static class Arctan extends AbstractCalculatable {
+	
+	public Arctan() {
+		super();
+	}
+
+	public Arctan(Calculatable x) {
+		super(x);
+	}
+	@Override
+	public BigDecimal getValue() {
+		return new BigDecimal(Math.atan(getX().getValue().doubleValue()));
+	}
+	
+	@Override
+	public String toString() {
+		return "Arctan(" + this.getX() + ")";
+	}
+}
 
 }

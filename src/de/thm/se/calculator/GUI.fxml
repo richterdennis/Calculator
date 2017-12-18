@@ -51,17 +51,17 @@
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="ARCSIN" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#arcsin" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="ARCSIN" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="ARCCOS" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#arccos" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="ARCCOS" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="ARCTAN" textAlignment="CENTER">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#arctan" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="ARCTAN" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
@@ -96,7 +96,7 @@
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#power" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="x^y" textAlignment="CENTER">
+         <Button fx:id="powerB" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#power" prefHeight="77.0" prefWidth="188.0" stylesheets="@application.css" text="x^y" textAlignment="CENTER">
             <font>
                <Font size="40.0" />
             </font>
