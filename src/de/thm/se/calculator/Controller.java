@@ -52,9 +52,7 @@ public class Controller{
 		
 		System.out.println("ZERO pressed");
 		
-		textFieldString = textFieldString + "0";
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.appendText("0");
 	}
 
 	@FXML
@@ -63,9 +61,7 @@ public class Controller{
 		
 		System.out.println("ONE pressed");
 		
-		textFieldString = textFieldString + "1";
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.appendText("1");
 	}
 
 	@FXML
@@ -74,9 +70,7 @@ public class Controller{
 		
 		System.out.println("TWO pressed");
 		
-		textFieldString = textFieldString + "2";
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.appendText("2");
 	}
 
 	@FXML
@@ -85,9 +79,7 @@ public class Controller{
 		
 		System.out.println("THREE pressed");
 		
-		textFieldString = textFieldString + "3";
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.appendText("3");
 	}
 
 	@FXML
@@ -96,9 +88,7 @@ public class Controller{
 		
 		System.out.println("FOUR pressed");
 		
-		textFieldString = textFieldString + "4";
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.appendText("4");
 	}
 
 	@FXML
@@ -107,9 +97,7 @@ public class Controller{
 		
 		System.out.println("FIVE pressed");
 		
-		textFieldString = textFieldString + "5";
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.appendText("5");
 	}
 	
 	@FXML
@@ -118,9 +106,7 @@ public class Controller{
 		
 		System.out.println("SIX pressed");
 		
-		textFieldString = textFieldString + "6";
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.appendText("6");
 	}
 	
 	@FXML	
@@ -129,9 +115,7 @@ public class Controller{
 		
 		System.out.println("SEVEN pressed");
 		
-		textFieldString = textFieldString + "7";
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.appendText("7");
 	}
 
 	@FXML
@@ -140,9 +124,7 @@ public class Controller{
 		
 		System.out.println("EIGHT pressed");
 		
-		textFieldString = textFieldString + "8";
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.appendText("8");
 	}
 
 	@FXML
@@ -151,9 +133,7 @@ public class Controller{
 		
 		System.out.println("NINE pressed");
 		
-		textFieldString = textFieldString + "9";
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.appendText("9");
 	}
 
 	@FXML
@@ -162,9 +142,7 @@ public class Controller{
 		
 		System.out.println("COMMA pressed");
 		
-		textFieldString = textFieldString + ".";
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.appendText(".");
 	}
 
 	@FXML
@@ -172,9 +150,7 @@ public class Controller{
 		if (input.length() == 0){
 			input.append("-");
 			
-			textFieldString = textFieldString + "-";
-			textField.clear();
-			textField.appendText(textFieldString);
+			textField.appendText("-");
 		}
 		System.out.println("PLUS_MINUS pressed");
 	}
@@ -186,9 +162,7 @@ public class Controller{
 		
 		System.out.println("CLEAR pressed");
 		
-		textFieldString = "";
 		textField.clear();
-		textField.appendText(textFieldString);
 	}
 
 	@FXML
@@ -196,7 +170,6 @@ public class Controller{
 		System.out.println("DEL pressed");
 		if (input.length() > 0) {
             input.setLength(input.length() - 1);
-            textFieldString = textFieldString.substring(0, textFieldString.length() -1);
             textField.deleteText(textField.getLength() - 1, textField.getLength());
         }
 	}
@@ -208,9 +181,7 @@ public class Controller{
 		
 		input.setLength(0);
 		
-		textFieldString = textFieldString + "*";
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.appendText("*");
 		System.out.println("MULTIPLY pressed");
 	}
 
@@ -220,9 +191,7 @@ public class Controller{
 		mainCalculatable.addOperator(Operator.DEVIDE);
 		input.setLength(0);
 		
-		textFieldString = textFieldString + "/";
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.appendText("/");
 		System.out.println("DIVIDE pressed");
 	}
 		
@@ -233,9 +202,7 @@ public class Controller{
 		
 		input.setLength(0);
 		
-		textFieldString = textFieldString + "+";
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.appendText("+");
 		System.out.println("ADD pressed");
 	}
 
@@ -265,7 +232,7 @@ public class Controller{
 		System.out.println(calc);
 		System.out.println(result);
 		
-		resultLabel.setText(textFieldString);
+		resultLabel.setText(textField.getText());
 		textField.setText(result);
 		input.append(result);
 		System.out.println("EQUALS pressed");
@@ -323,10 +290,11 @@ public class Controller{
 	@FXML
 	public void sin() {
 		Trigonometric.Sin sinus = new Trigonometric.Sin(new Decimal(input.toString()));
-		textFieldString = textFieldString.replace(input.toString(), sinus.toString());
+		String temp = input.toString();
+		temp = temp.replace(input.toString(), sinus.toString());
 		
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
+		textField.appendText(temp);
 		input.setLength(0);
 		input.append(sinus.getValue().toString());
 		System.out.println(textFieldString);
@@ -335,13 +303,14 @@ public class Controller{
 	@FXML
 	public void cos() {
 		Trigonometric.Cos cosinus = new Trigonometric.Cos(new Decimal(input.toString()));
-		textFieldString = textFieldString.replace(input.toString(), cosinus.toString());
+		String temp = input.toString();
+		temp = temp.replace(input.toString(), cosinus.toString());
 		
-
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
+		textField.appendText(temp);
 		input.setLength(0);
 		input.append(cosinus.getValue().toString());
+		System.out.println(textFieldString);
 	}
 	
 	@FXML
@@ -349,10 +318,14 @@ public class Controller{
 		Trigonometric.Tan tangens = new Trigonometric.Tan(new Decimal(input.toString()));
 		textFieldString = textFieldString.replace(input.toString(), tangens.toString());
 		
-		textField.clear();
-		textField.appendText(textFieldString);
+		String temp = input.toString();
+		temp = temp.replace(input.toString(), tangens.toString());
+		
+		textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
+		textField.appendText(temp);
 		input.setLength(0);
 		input.append(tangens.getValue().toString());
+		System.out.println(textFieldString);
 	}
 
 	@FXML
