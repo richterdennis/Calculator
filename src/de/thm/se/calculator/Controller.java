@@ -458,50 +458,9 @@ public class Controller{
 
 	@FXML
 	public void power() {
-		 Dialog<Pair<String, String>> dialog = new Dialog<>();
-		    dialog.setTitle("Power");
-
-		    // Set the button types.
-		    ButtonType loginButtonType = new ButtonType("OK", ButtonData.OK_DONE);
-		    dialog.getDialogPane().getButtonTypes().addAll(loginButtonType, ButtonType.CANCEL);
-
-		    GridPane gridPane = new GridPane();
-		    gridPane.setHgap(10);
-		    gridPane.setVgap(10);
-		    gridPane.setPadding(new Insets(20, 150, 10, 10));
-
-		    TextField from = new TextField();
-		    from.setPromptText("Basis");
-		    TextField to = new TextField();
-		    to.setPromptText("Exponent");
-
-		    gridPane.add(new Label("Basis"), 0, 0);
-		    gridPane.add(from, 0, 1);
-		    gridPane.add(new Label("Exponent"), 1, 0);
-		    gridPane.add(to, 1, 1);
-
-		    dialog.getDialogPane().setContent(gridPane);
-
-		    // Request focus on the username field by default.
-		    Platform.runLater(() -> from.requestFocus());
-
-		    // Convert the result to a username-password-pair when the login button is clicked.
-		    dialog.setResultConverter(dialogButton -> {
-		        if (dialogButton == loginButtonType) {
-		            return new Pair<>(from.getText(), to.getText());
-		        }
-		        return null;
-		    });
-
-		    Optional<Pair<String, String>> result = dialog.showAndWait();
-
-		    result.ifPresent(pair -> {
-		    	bas = pair.getKey();
-		    	exp = pair.getValue();
-		        System.out.println("From=" + pair.getKey() + ", To=" + pair.getValue());
-		    });
-		    
-		    Power pow = new Power(new Decimal(bas), new Decimal(exp));
+		    DialogCreator test = new DialogCreator("Bitte Exponent und Basis eingeben", "Basis", "Exponent");
+		    test.show();
+		    Power pow = new Power(new Decimal(test.getOne()), new Decimal(test.getTwo()));
 		    System.out.println(pow.toString());
 		    System.out.println(pow.getValue().toString());
 		    input.append(pow.getValue().toString());
