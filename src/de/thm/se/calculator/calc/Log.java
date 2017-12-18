@@ -14,6 +14,7 @@ public class Log implements Calculatable {
 	Calculatable x;
 	
 	public Log(Calculatable b, Calculatable x) {
+		this.b = b;
 		this.x = x;
 	}
 	

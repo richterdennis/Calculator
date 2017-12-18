@@ -1,24 +1,19 @@
 package de.thm.se.calculator;
 
-import java.util.Optional;
-
 import de.thm.se.calculator.calc.Chain;
 import de.thm.se.calculator.calc.Decimal;
 import de.thm.se.calculator.calc.Fracture;
+import de.thm.se.calculator.calc.Ln;
+import de.thm.se.calculator.calc.Log;
 import de.thm.se.calculator.calc.Operator;
 import de.thm.se.calculator.calc.Power;
+import de.thm.se.calculator.calc.Root;
+import de.thm.se.calculator.calc.Sqrt;
 import de.thm.se.calculator.calc.Trigonometric;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.util.Pair;
 
 public class Controller{
 	
@@ -36,6 +31,9 @@ public class Controller{
 	
 	@FXML
 	Label resultLabel;
+	
+	@FXML
+	Label errorLabel;
 	
 	// Collect the user input and create a calculatable later
 	StringBuilder input = new StringBuilder();
@@ -278,55 +276,42 @@ public class Controller{
 
 	@FXML
 	public void pi() {
-		//if (input.length() == 0 ) {
-		
-		input.append(Math.PI); 
-		/*}
-		else {
-			mainCalculatable.addLink(new Decimal(input.toString()));
-			mainCalculatable.addOperator(Operator.MULTIPLY);
-			input.setLength(0);
+		if (input.length() == 0 ) {
+			
 			input.append(Math.PI);
-		} */
-		textField.appendText("π");
-		System.out.println("PI pressed");
+			textField.appendText("π");
+			}
+			else {
+				mainCalculatable.addLink(new Decimal(input.toString()));
+				mainCalculatable.addOperator(Operator.MULTIPLY);
+				textField.appendText("*π");
+				input.setLength(0);
+				input.append(Math.PI);
+			}
+			System.out.println("pi pressed");
 	}
 	
 	@FXML
 	public void e() {
-	//if (input.length() == 0 ) {
+	if (input.length() == 0 ) {
 		
-		input.append(Math.E); 
-		/*}
+		input.append(Math.E);
+		textField.appendText("e");
+		input.setLength(0);
+		}
 		else {
 			mainCalculatable.addLink(new Decimal(input.toString()));
 			mainCalculatable.addOperator(Operator.MULTIPLY);
+			textField.appendText("*e");
 			input.setLength(0);
-			input.append(Math.PI);
-		} */
-		textField.appendText("e");
+			input.append(Math.E);
+		}
 		System.out.println("e pressed");
 		
 	}
 
 	@FXML
 	public void power_e() {
-				// Create a temporary String to save the Value for the e
-				String temp = input.toString();
-				// Create new e-Object
-				Double exp = Math.exp(new Double(temp));
-				// Replace the Number with e-expression
-				temp = temp.replace(input.toString(), "e^" + temp);
-				// Delete the converted e out of the Textfield
-				textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
-				// Append the Sin-expression from temporary String into the Textfield
-				textField.appendText(temp);
-				// Clear Inputstring
-				input.setLength(0);
-				// Append the Value of the e-Expression to the Inputstring
-				input.append(exp.toString());
-				// Test Systemout
-				System.out.println(textFieldString);
 	}
 
 	@FXML
@@ -351,115 +336,80 @@ public class Controller{
 
 	@FXML
 	public void fracture() {
-		textField.appendText("/");
-		System.out.println("FRACTURE pressed");
+		 DialogCreator test = new DialogCreator("Bruch", "Bitte Zähler und Nenner eingeben", "Zähler", "Nenner");
+		 Fracture fra = new Fracture(new Decimal(test.getOne()), new Decimal(test.getTwo()));
+		 System.out.println(fra.toString());
+		 System.out.println(fra.getValue().toString());
+		 input.append(fra.getValue().toString());
+		 textField.appendText(fra.toString());   
 	}
 
 	@FXML
 	public void sin() {
-		// Create new Sin-Object
-		Trigonometric.Sin sinus = new Trigonometric.Sin(new Decimal(input.toString()));
-		// Create a temporary String to save the Value for the Sin
-		String temp = input.toString();
-		// Replace the Number with Sin-expression
-		temp = temp.replace(input.toString(), sinus.toString());
-		
-		// Delete the Converted Sin out of the Textfield
-		textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
-		// Append the Sin-expression from temporary String into the Textfield
-		textField.appendText(temp);
-		// Clear Inputstring
-		input.setLength(0);
-		// Append the Value of the Sin to the Inputstring
-		input.append(sinus.getValue().toString());
-		// Test Systemout
-		System.out.println(textFieldString);
+		TextDialogCreator dialog = new TextDialogCreator("Sinus", "Bitte Wert eingeben", "sin");
+		Trigonometric.Sin sin = new Trigonometric.Sin(new Decimal(dialog.getValue()));
+	    System.out.println(sin.getValue().toString());
+	    System.out.println(sin.toString());
+	    input.append(sin.getValue().toString());
+	    textField.appendText(sin.toString());
 	}
 
 	@FXML
 	public void cos() {
-		Trigonometric.Cos cosinus = new Trigonometric.Cos(new Decimal(input.toString()));
-		String temp = input.toString();
-		temp = temp.replace(input.toString(), cosinus.toString());
-		
-		textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
-		textField.appendText(temp);
-		input.setLength(0);
-		input.append(cosinus.getValue().toString());
-		System.out.println(textFieldString);
+		TextDialogCreator dialog = new TextDialogCreator("Cosinus", "Bitte Wert eingeben", "cos");
+		Trigonometric.Cos cos = new Trigonometric.Cos(new Decimal(dialog.getValue()));
+	    System.out.println(cos.getValue().toString());
+	    System.out.println(cos.toString());
+	    input.append(cos.getValue().toString());
+	    textField.appendText(cos.toString());
+		    
 	}
 	
 	@FXML
 	public void tan() {
-		Trigonometric.Tan tangens = new Trigonometric.Tan(new Decimal(input.toString()));
-		textFieldString = textFieldString.replace(input.toString(), tangens.toString());
-		
-		String temp = input.toString();
-		temp = temp.replace(input.toString(), tangens.toString());
-		
-		textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
-		textField.appendText(temp);
-		input.setLength(0);
-		input.append(tangens.getValue().toString());
-		System.out.println(textFieldString);
+		TextDialogCreator dialog = new TextDialogCreator("Tangens", "Bitte Wert eingeben", "tan");
+		Trigonometric.Tan tan = new Trigonometric.Tan(new Decimal(dialog.getValue()));
+	    System.out.println(tan.getValue().toString());
+	    System.out.println(tan.toString());
+	    input.append(tan.getValue().toString());
+	    textField.appendText(tan.toString());
 	}
 	
 	@FXML
 	public void arcsin() {
-		// Create new Sin-Object
-		Trigonometric.Arcsin arcsinus = new Trigonometric.Arcsin(new Decimal(input.toString()));
-		// Create a temporary String to save the Value for the Sin
-		String temp = input.toString();
-		// Replace the Number with Sin-expression
-		temp = temp.replace(input.toString(), arcsinus.toString());
-		
-		// Delete the Converted Sin out of the Textfield
-		textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
-		// Append the Sin-expression from temporary String into the Textfield
-		textField.appendText(temp);
-		// Clear Inputstring
-		input.setLength(0);
-		// Append the Value of the Sin to the Inputstring
-		input.append(arcsinus.getValue().toString());
-		// Test Systemout
-		System.out.println(textFieldString);
+		TextDialogCreator dialog = new TextDialogCreator("Arkussinus", "Bitte Wert eingeben", "arcsin");
+		Trigonometric.Arcsin arcsin = new Trigonometric.Arcsin(new Decimal(dialog.getValue()));
+	    System.out.println(arcsin.getValue().toString());
+	    System.out.println(arcsin.toString());
+	    input.append(arcsin.getValue().toString());
+	    textField.appendText(arcsin.toString());
 	}
 	
 	@FXML
 	public void arccos() {
-		Trigonometric.Arccos arccosinus = new Trigonometric.Arccos(new Decimal(input.toString()));
-		String temp = input.toString();
-		temp = temp.replace(input.toString(), arccosinus.toString());
-		
-		textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
-		textField.appendText(temp);
-		input.setLength(0);
-		input.append(arccosinus.getValue().toString());
-		System.out.println(textFieldString);
+		TextDialogCreator dialog = new TextDialogCreator("Arkuscosinus", "Bitte Wert eingeben", "arccos");
+		Trigonometric.Arccos arccos = new Trigonometric.Arccos(new Decimal(dialog.getValue()));
+	    System.out.println(arccos.getValue().toString());
+	    System.out.println(arccos.toString());
+	    input.append(arccos.getValue().toString());
+	    textField.appendText(arccos.toString());
 	}
 	
 	@FXML
 	public void arctan() {
-		Trigonometric.Arctan arctangens = new Trigonometric.Arctan(new Decimal(input.toString()));
-		textFieldString = textFieldString.replace(input.toString(), arctangens.toString());
-		
-		String temp = input.toString();
-		temp = temp.replace(input.toString(), arctangens.toString());
-		
-		textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
-		textField.appendText(temp);
-		input.setLength(0);
-		input.append(arctangens.getValue().toString());
-		System.out.println(textFieldString);
-		
+		TextDialogCreator dialog = new TextDialogCreator("Arkustangens", "Bitte Wert eingeben", "arctan");
+		Trigonometric.Arctan arctan = new Trigonometric.Arctan(new Decimal(dialog.getValue()));
+	    System.out.println(arctan.getValue().toString());
+	    System.out.println(arctan.toString());
+	    input.append(arctan.getValue().toString());
+	    textField.appendText(arctan.toString());	
 	}
 	
 	
 
 	@FXML
 	public void power() {
-		    DialogCreator test = new DialogCreator("Bitte Exponent und Basis eingeben", "Basis", "Exponent");
-		    test.show();
+		    DialogCreator test = new DialogCreator("Exponential", "Bitte Exponent und Basis eingeben", "Basis", "Exponent");
 		    Power pow = new Power(new Decimal(test.getOne()), new Decimal(test.getTwo()));
 		    System.out.println(pow.toString());
 		    System.out.println(pow.getValue().toString());
@@ -471,32 +421,57 @@ public class Controller{
 
 	@FXML
 	public void power_2() {
-		textField.appendText("Â²");
-		System.out.println("POWER_2 pressed");
+		if (input.length() == 0 ) {
+			//errorLabel.setText("ZUNÄCHST BASIS EINGEBEN");
+			}
+			else {
+				Power pow = new Power(new Decimal(input.toString()), new Decimal(2));
+				textField.appendText("²");
+				input.setLength(0);
+				input.append(pow.getValue());
+			}
+			System.out.println("power2 pressed");
+			
 	}
 	
 	@FXML
 	public void root() {
-		textField.appendText("âˆš");
-		System.out.println("ROOT pressed");
+		 DialogCreator test = new DialogCreator("Wurzel", "Bitte Wurzelexponent und Radikant eingeben", "Wurzelexponent", "Radikant");
+		 Root roo = new Root(new Decimal(test.getOne()), new Decimal(test.getTwo()));
+		 System.out.println(roo.toString());
+		 System.out.println(roo.getValue().toString());
+		 input.append(roo.getValue().toString());
+		 textField.appendText(roo.toString());   
 	}
 
 	@FXML
 	public void sroot() {
-		textField.appendText("âˆš");
-		System.out.println("SROOT pressed");
+		TextDialogCreator dialog = new TextDialogCreator("Quadratwurzel", "Bitte Radikant eingeben", "Radikant");
+		Root sqr = new Root(new Decimal(dialog.getValue()));
+	    System.out.println(sqr.getValue().toString());
+	    System.out.println(sqr.toString());
+	    input.append(sqr.getValue().toString());
+	    textField.appendText(sqr.toString());
 	}
 
 	@FXML
 	public void log() {
-		textField.appendText("log");
-		System.out.println("LOG pressed");
+		DialogCreator test = new DialogCreator("Logarithmus", "Bitte Basis und Numerus eingeben", "Basis", "Numerus");
+	    Log log = new Log(new Decimal(test.getOne()), new Decimal(test.getTwo()));
+	    System.out.println(log.toString());
+	    System.out.println(log.getValue().toString());
+	    input.append(log.getValue().toString());
+	    textField.appendText(log.toString());
 	}
 
 	@FXML
 	public void ln() {
-		textField.appendText("ln");
-		System.out.println("LN pressed");
+		TextDialogCreator dialog = new TextDialogCreator("Limes", "Bitte Wert eingeben", "ln");
+		Ln ln = new Ln(new Decimal(dialog.getValue()));
+	    System.out.println(ln.getValue().toString());
+	    System.out.println(ln.toString());
+	    input.append(ln.getValue().toString());
+	    textField.appendText(ln.toString());
 	}
 	
 	@FXML
@@ -507,20 +482,3 @@ public class Controller{
 	public void rad() {
 	}
 }
-
-/* // Create a temporary String to save the Value for the e
-String temp = input.toString();
-// Create new e-Object
-Double exp = Math.exp(new Double(temp));
-// Replace the Number with e-expression
-temp = temp.replace(input.toString(), "e^" + temp);
-// Delete the converted e out of the Textfield
-textField.deleteText(textField.getLength() - input.toString().length(), textField.getLength());
-// Append the Sin-expression from temporary String into the Textfield
-textField.appendText(temp);
-// Clear Inputstring
-input.setLength(0);
-// Append the Value of the e-Expression to the Inputstring
-input.append(exp.toString());
-// Test Systemout
-System.out.println(textFieldString); */
