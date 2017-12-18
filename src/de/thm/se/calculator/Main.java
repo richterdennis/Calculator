@@ -3,10 +3,10 @@ package de.thm.se.calculator;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Screen;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
@@ -20,6 +20,7 @@ public class Main extends Application {
 			//root.setMaxHeight(visualBounds.getHeight());
 			//root.setMaxWidth(visualBounds.getWidth());
 			VBox root = (VBox) FXMLLoader.load(getClass().getResource("GUI.fxml"));
+			AnchorPane box = (AnchorPane) FXMLLoader.load(getClass().getResource("popup.fxml"));
 			root.setFillWidth(false);
 			Scene scene = new Scene(root,1366, 768);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
