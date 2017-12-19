@@ -253,7 +253,8 @@ public class Controller implements Initializable{
 		System.out.println(result);
 		
 		if(result.length() > 30) {
-		result = result.substring(0, 29);}
+		result = result.substring(0, 29);
+		}
 
 		resultLabel.setText(textField.getText());
 		textField.setText(result);
@@ -352,10 +353,21 @@ public class Controller implements Initializable{
 	@FXML
 	public void fracture() {
 		DialogCreator test = new DialogCreator("Bruch", "Bitte Zähler und Nenner eingeben", "Zähler", "Nenner");
+		Chain c = new Chain();
 		Fracture fra = new Fracture(new Decimal(test.getOne()), new Decimal(test.getTwo()));
-		System.out.println(fra.toString());
-		System.out.println(fra.getValue().toString());
-		input.append(fra.getValue().toString());
+		if(input.length() == 0) {
+			focus.addLink(fra);
+		}
+		else {
+			focus.addLink(new Decimal(input.toString()));
+			focus.addOperator(Operator.MULTIPLY);
+			focus.addLink(fra);
+			input.setLength(0);
+			textField.appendText("*");
+		}
+
+		c.setParent(focus);
+		focus = c;
 		textField.appendText(fra.toString());
 	}
 
@@ -488,17 +500,23 @@ public class Controller implements Initializable{
 	@FXML
 	public void power() {
 		DialogCreator test = new DialogCreator("Exponential", "Bitte Exponent und Basis eingeben", "Basis", "Exponent");
+	
+		Chain c = new Chain();
 		Power pow = new Power(new Decimal(test.getOne()), new Decimal(test.getTwo()));
-
 		if(input.length() == 0) {
-			input.append(pow.getValue().toString());
+			focus.addLink(pow);
 		}
 		else {
-			multiply();
-			input.append(pow.getValue().toString());
+			focus.addLink(new Decimal(input.toString()));
+			focus.addOperator(Operator.MULTIPLY);
+			focus.addLink(pow);
+			input.setLength(0);
+			textField.appendText("*");
 		}
-		textField.appendText(pow.toString());
 
+		c.setParent(focus);
+		focus = c;
+		textField.appendText(pow.toString());
 	}
 
 	@FXML
@@ -518,15 +536,24 @@ public class Controller implements Initializable{
 
 	@FXML
 	public void root() {
-		 DialogCreator test = new DialogCreator("Wurzel", "Bitte Wurzelexponent und Radikant eingeben", "Wurzelexponent", "Radikant");
-		 Root roo = new Root(new Decimal(test.getTwo()), new Decimal(test.getOne()));
-		 
-		 if (input.length() == 0) {		    
-			    input.append(roo.getValue().toString());}
-			    else { multiply();
-			    input.append(roo.getValue().toString());
-			    }
-			    textField.appendText(roo.toString());
+		DialogCreator test = new DialogCreator("Wurzel", "Bitte Wurzelexponent und Radikant eingeben", "Wurzelexponent", "Radikant");
+
+		Chain c = new Chain();
+		Root roo = new Root(new Decimal(test.getTwo()), new Decimal(test.getOne()));
+		if(input.length() == 0) {
+			focus.addLink(roo);
+		}
+		else {
+				focus.addLink(new Decimal(input.toString()));
+				focus.addOperator(Operator.MULTIPLY);
+				focus.addLink(roo);
+				input.setLength(0);
+				textField.appendText("*");
+		}
+		c.setParent(focus);
+		focus = c;
+		textField.appendText(roo.toString());		 
+
 	}
 
 	@FXML
@@ -552,15 +579,21 @@ public class Controller implements Initializable{
 	@FXML
 	public void log() {
 		DialogCreator test = new DialogCreator("Logarithmus", "Bitte Basis und Numerus eingeben", "Basis", "Numerus");
+		Chain c = new Chain();
 		Log log = new Log(new Decimal(test.getOne()), new Decimal(test.getTwo()));
-
 		if(input.length() == 0) {
-			input.append(log.getValue().toString());
+			focus.addLink(log);
 		}
 		else {
-			multiply();
-			input.append(log.getValue().toString());
+			focus.addLink(new Decimal(input.toString()));
+			focus.addOperator(Operator.MULTIPLY);
+			focus.addLink(log);
+			input.setLength(0);
+			textField.appendText("*");
 		}
+
+		c.setParent(focus);
+		focus = c;
 		textField.appendText(log.toString());
 	}
 

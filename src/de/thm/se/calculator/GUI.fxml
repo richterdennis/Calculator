@@ -104,12 +104,12 @@
                <Font size="40.0" />
             </font>
          </Button>
-         <Button accessibleText="Addieren" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#add" prefHeight="70.0" prefWidth="180.0" styleClass="big" stylesheets="@application.css" text="+" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="4">
+         <Button accessibleText="Subtrahieren" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#subtract" prefHeight="70.0" prefWidth="180.0" styleClass="big" stylesheets="@application.css" text="-" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="5">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button accessibleText="Subtrahieren" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#subtract" prefHeight="70.0" prefWidth="180.0" styleClass="big" stylesheets="@application.css" text="-" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="5">
+         <Button accessibleText="Addieren" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#add" prefHeight="70.0" prefWidth="180.0" styleClass="big" stylesheets="@application.css" text="+" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="4">
             <font>
                <Font size="40.0" />
             </font>
@@ -173,7 +173,7 @@
                <Font size="40.0" />
             </font>
          </Button>
-         <Button accessibleText="pi" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#e_power" prefHeight="70.0" prefWidth="180.0" styleClass="big" stylesheets="@application.css" text="e^x" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <Button accessibleText="e hoch x" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#e_power" prefHeight="70.0" prefWidth="180.0" styleClass="big" stylesheets="@application.css" text="e^x" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
             <font>
                <Font size="40.0" />
             </font>

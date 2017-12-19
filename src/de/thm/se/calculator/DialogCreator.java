@@ -68,15 +68,4 @@ public class DialogCreator extends Dialog{
 	public String getTwo() {
 		return vTwo;
 	}
-	
-	public void setOne(String one) {
-		this.vOne = vOne;
-	}
-	
-	public void setTwo(String two) {
-		this.vTwo = vTwo;
-	}
-	
-	
-
 }
