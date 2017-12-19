@@ -1,5 +1,8 @@
 package de.thm.se.calculator;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import de.thm.se.calculator.calc.Chain;
 import de.thm.se.calculator.calc.Decimal;
 import de.thm.se.calculator.calc.Factorial;
@@ -11,12 +14,16 @@ import de.thm.se.calculator.calc.Power;
 import de.thm.se.calculator.calc.Root;
 import de.thm.se.calculator.calc.Trigonometric;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 
-public class Controller{
+public class Controller implements Initializable{
 	
 	// Parse TextField
 	@FXML 
@@ -38,6 +45,15 @@ public class Controller{
 	
 	// This is the main calculatable
 	Chain mainCalculatable = new Chain();
+	
+	@FXML
+	Button answer;
+	
+	// Set Answer as primary Button (Onlick --> Enter)
+	public void initialize(URL location, ResourceBundle resources) {
+		answer.setDefaultButton(true);
+		
+	}
 	
 
 	@FXML

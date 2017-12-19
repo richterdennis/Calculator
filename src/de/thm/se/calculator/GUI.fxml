@@ -238,7 +238,7 @@
                <Font size="40.0" />
             </font>
          </Button>
-         <Button accessibleText="Istgleich" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#equals" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="=" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="6">
+         <Button fx:id="answer" accessibleText="Istgleich" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#equals" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="=" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="6">
             <font>
                <Font size="40.0" />
             </font>
