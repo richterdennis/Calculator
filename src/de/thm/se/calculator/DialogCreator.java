@@ -18,8 +18,9 @@ public class DialogCreator extends Dialog{
 	String vTwo;
 
 
-	
+	// Create Dialog
 	public DialogCreator(String header, String title, String one, String two) {
+		// Set Details of Dialog (Header, Title, Gridpane with two Textfields)
 		this.setHeaderText(header);
 	    this.setTitle(title);
 	    ButtonType okbutton = new ButtonType("OK", ButtonData.OK_DONE);
@@ -41,10 +42,10 @@ public class DialogCreator extends Dialog{
 	    gridPane.add(zwei, 1, 1);
 	    this.getDialogPane().setContent(gridPane);
 
-	    // Set Focus to Basis-Field
+	    // Set Focus to First Field
 	    Platform.runLater(() -> eins.requestFocus());
 
-	    // Convert the result to a username-password-pair when the login button is clicked.
+	    // Convert the result to a Pair
 	    this.setResultConverter(dialogButton -> {
 	        if (dialogButton == okbutton) {
 	            return new Pair<>(eins.getText(), zwei.getText());
@@ -52,9 +53,10 @@ public class DialogCreator extends Dialog{
 	        return null;
 	    });
 	    
-	 Optional<Pair<String, String>> result = this.showAndWait();
+	    // Get the Pair
+	    Optional<Pair<String, String>> result = this.showAndWait();
 
-	   result.ifPresent(pair -> {
+	    result.ifPresent(pair -> {
 	    	vOne = pair.getKey();
 	    	vTwo = pair.getValue();
 	    });

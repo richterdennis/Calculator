@@ -50,17 +50,18 @@ public class Controller implements Initializable{
 	// This is the main calculatable
 	Chain mainCalculatable = new Chain();
 	
+	// Buffer Calculatable
+	Chain focus = mainCalculatable;
+
+	// Result Button
 	@FXML
 	Button answer;
 	
-	// Set Answer as primary Button (Onlick --> Enter)
+	// Set Result as primary Button (Onlick --> Enter)
 	public void initialize(URL location, ResourceBundle resources) {
 		answer.setDefaultButton(true);
 		
 	}
-	
-
-	Chain focus = mainCalculatable;
 
 	@FXML
 	public void zero() {
@@ -184,11 +185,12 @@ public class Controller implements Initializable{
 
 	@FXML
 	public void del() {
-		System.out.println("DEL pressed");
 		if(input.length() > 0) {
 			input.setLength(input.length() - 1);
 			textField.deleteText(textField.getLength() - 1, textField.getLength());
 		}
+		
+		System.out.println("DEL pressed");
 	}
 
 	@FXML
@@ -240,25 +242,31 @@ public class Controller implements Initializable{
 
 	@FXML
 	public void equals() {
+		// If Input is present convert to Calculatable
 		if(input.length() > 0)
 			focus.addLink(new Decimal(input.toString()));
-
+		
+		// Convert the Calculatable to a String
 		String calc = mainCalculatable.toString();
 		result = mainCalculatable.getValue().toString();
 
+		// Clear the Calculatable/Input
 		input.setLength(0);
 		mainCalculatable.clear();
 
-		System.out.println(calc);
-		System.out.println(result);
 		
+		// Trim Result to 30 Digits
 		if(result.length() > 30) {
 		result = result.substring(0, 29);
 		}
 
+		// Set Resultlabel and Textfield
 		resultLabel.setText(textField.getText());
 		textField.setText(result);
 		input.append(result);
+		
+		System.out.println(calc);
+		System.out.println(result);
 		System.out.println("EQUALS pressed");
 	}
 
@@ -313,6 +321,7 @@ public class Controller implements Initializable{
 				input.setLength(0);
 				input.append(fac.getValue());
 			}
+		System.out.println("FACTORIAL pressed");
 	}
 
 	@FXML
@@ -369,6 +378,8 @@ public class Controller implements Initializable{
 		c.setParent(focus);
 		focus = c;
 		textField.appendText(fra.toString());
+		
+		System.out.println("FRACTURE pressed");
 	}
 
 	@FXML
@@ -390,6 +401,7 @@ public class Controller implements Initializable{
 		focus = c;
 		
 		textField.appendText("sin(");
+		System.out.println("SIN pressed");
 	}
 
 	@FXML
@@ -411,6 +423,7 @@ public class Controller implements Initializable{
 		focus = c;
 		
 		textField.appendText("cos(");
+		System.out.println("COS pressed");
 	}
 
 	@FXML
@@ -432,6 +445,7 @@ public class Controller implements Initializable{
 		focus = c;
 		
 		textField.appendText("tan(");
+		System.out.println("TAN pressed");
 	}
 
 	@FXML
@@ -453,6 +467,7 @@ public class Controller implements Initializable{
 		focus = c;
 		
 		textField.appendText("arcsin(");
+		System.out.println("ARCSIN pressed");
 	}
 
 	@FXML
@@ -474,6 +489,7 @@ public class Controller implements Initializable{
 		focus = c;
 		
 		textField.appendText("arccos(");
+		System.out.println("ARCCOS pressed");
 	}
 
 	@FXML
@@ -495,6 +511,7 @@ public class Controller implements Initializable{
 		focus = c;
 		
 		textField.appendText("arctan(");
+		System.out.println("ARCTAN pressed");
 	}
 
 	@FXML
@@ -517,20 +534,18 @@ public class Controller implements Initializable{
 		c.setParent(focus);
 		focus = c;
 		textField.appendText(pow.toString());
+		System.out.println("POWER pressed");
 	}
 
 	@FXML
 	public void power_2() {
-		if(input.length() == 0) {
-			// errorLabel.setText("ZUNÄCHST BASIS EINGEBEN");
-		}
-		else {
+		if(input.length() != 0) {
 			Power pow = new Power(new Decimal(input.toString()), new Decimal(2));
 			textField.appendText("²");
 			input.setLength(0);
 			input.append(pow.getValue());
 		}
-		System.out.println("power2 pressed");
+		System.out.println("POWER2 pressed");
 
 	}
 
@@ -552,7 +567,8 @@ public class Controller implements Initializable{
 		}
 		c.setParent(focus);
 		focus = c;
-		textField.appendText(roo.toString());		 
+		textField.appendText(roo.toString());
+		System.out.println("ROOT pressed");
 
 	}
 
@@ -572,8 +588,9 @@ public class Controller implements Initializable{
 		
 		c.setParent(focus);
 		focus = c;
-		
 		textField.appendText("sqrt(");
+		
+		System.out.println("SROOT pressed");
 	}
 
 	@FXML
@@ -595,6 +612,7 @@ public class Controller implements Initializable{
 		c.setParent(focus);
 		focus = c;
 		textField.appendText(log.toString());
+		System.out.println("LOG pressed");
 	}
 
 	@FXML
@@ -616,6 +634,7 @@ public class Controller implements Initializable{
 		focus = c;
 		
 		textField.appendText("ln(");
+		System.out.println("LN pressed");
 	}
 	
 	@FXML
@@ -638,11 +657,15 @@ public class Controller implements Initializable{
 		
 		textField.appendText("e^");
 		
+		System.out.println("EPOWER pressed");
+		
 	}
 
 	@FXML
 	public void ans() {
 		textField.appendText(result);
 		input.append(result);
+		
+		System.out.println("ANS pressed");
 	}
 }

@@ -15,11 +15,6 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			
-			// Get Screen Size
-			// Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
-			//root.setMaxHeight(visualBounds.getHeight());
-			//root.setMaxWidth(visualBounds.getWidth());
 			VBox root = (VBox) FXMLLoader.load(getClass().getResource("GUI.fxml"));
 			root.setFillWidth(false);
 			Scene scene = new Scene(root,1366, 768);
