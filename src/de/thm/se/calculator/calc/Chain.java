@@ -11,6 +11,16 @@ import java.util.ArrayList;
  *
  */
 public class Chain implements Calculatable {
+	
+	private Chain parent = null;
+	
+	public void setParent(Chain parent) {
+		this.parent = parent;
+	}
+	
+	public Chain getParent() {
+		return parent;
+	}
 
 	private ArrayList<Operator> operators;
 	private ArrayList<Calculatable> links;
