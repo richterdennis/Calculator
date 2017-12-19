@@ -15,7 +15,7 @@
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.thm.se.calculator.Controller">
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-         <Label fx:id="resultLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="911.0" styleClass="resultLabel" stylesheets="@application.css" textAlignment="JUSTIFY">
+         <Label fx:id="resultLabel" accessibleText="Ergebnisfeld" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="911.0" styleClass="resultLabel" stylesheets="@application.css" textAlignment="JUSTIFY">
             <font>
                <Font size="25.0" />
             </font>
@@ -27,7 +27,7 @@
          </Label>
       </children>
    </HBox>
-   <TextField fx:id="textField" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="216.0" prefWidth="1366.0" styleClass="textField" stylesheets="@application.css" />
+   <TextField fx:id="textField" accessibleText="Rechenfeld" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="216.0" prefWidth="1366.0" styleClass="textField" stylesheets="@application.css" />
    <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1366.0">
      <columnConstraints>
          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -50,201 +50,201 @@
        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
      </rowConstraints>
       <children>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#sin" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="SIN" textAlignment="CENTER">
-            <font>
-               <Font size="40.0" />
-            </font></Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#cos" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="COS" textAlignment="CENTER" GridPane.columnIndex="1">
+         <Button accessibleText="Eingabefeld leeren" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#clear" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="C" textAlignment="CENTER" GridPane.columnIndex="5">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#tan" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="TAN" textAlignment="CENTER" GridPane.columnIndex="2">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#clear" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="C" textAlignment="CENTER" GridPane.columnIndex="5">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#del" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="AC" textAlignment="CENTER" GridPane.columnIndex="4">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#arcsin" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="ARCSIN" textAlignment="CENTER" GridPane.rowIndex="2">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#arccos" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="ARCCOS" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#arctan" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="ARCTAN" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#seven" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="7" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="2">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#eight" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="8" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="2">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#nine" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="9" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="2">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button id="operators" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#divide" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="÷" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="2">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#e" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="e" textAlignment="CENTER" GridPane.rowIndex="3">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#pi" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="π" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button fx:id="powerB" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#power" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="x^y" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#four" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="4" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="3">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#five" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="5" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="3">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#six" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="6" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="3">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#multiply" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="*" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="3">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#ln" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="LN" textAlignment="CENTER" GridPane.rowIndex="4">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#log" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="LOG" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#fracture" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="x/y" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#one" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="1" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="4">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#two" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="2" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="4">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#three" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="3" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="4">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#add" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="+" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="4">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#root" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="x√y" textAlignment="CENTER" GridPane.rowIndex="5">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#power_2" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="x²" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#sroot" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="√" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#plus_minus" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="-" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="5">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#zero" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="0" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="5">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#comma" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="." textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="5">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#subtract" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="-" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="5">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#percent" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="\%" textAlignment="CENTER" GridPane.rowIndex="6">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#factorial" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="n!" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="6">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#ans" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="ANS" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="6">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#pleft" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="[" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="6">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#pright" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="]" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="6">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#equals" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="=" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="6">
+         <Button accessibleText="Letztes Zeichen loeschen" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#del" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="AC" textAlignment="CENTER" GridPane.columnIndex="4">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
          <ToggleButton fx:id="degradButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#degrading" prefHeight="70.0" prefWidth="180.0" styleClass="degrad" stylesheets="@application.css" text="DEG" GridPane.columnIndex="8" />
+         <Button accessibleText="Antwort" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#ans" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="ANS" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="6">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Klammer auf" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#pleft" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="[" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="6">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Klammer zu" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#pright" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="]" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="6">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button id="operators" accessibleText="Dividieren" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#divide" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="÷" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="2">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Multiplizieren" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#multiply" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="*" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="3">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Addieren" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#add" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="+" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="4">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Substrahieren" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#subtract" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="-" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="5">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Istgleich" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#equals" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="=" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="6">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Sieben" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#seven" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="7" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="2">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Acht" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#eight" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="8" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="2">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Neun" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#nine" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="9" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="2">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Vier" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#four" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="4" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="3">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Fuenf" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#five" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="5" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="3">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Sechs" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#six" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="6" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="3">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Eins" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#one" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="1" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="4">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Zwei" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#two" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="2" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="4">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Drei" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#three" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="3" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="4">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Minus" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#plus_minus" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="-" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="5">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Null" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#zero" prefHeight="70.0" prefWidth="180.0" styleClass="nums" stylesheets="@application.css" text="0" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="5">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Komma" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#comma" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="." textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="5">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Sinus" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#sin" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="SIN" textAlignment="CENTER">
+            <font>
+               <Font size="40.0" />
+            </font></Button>
+         <Button accessibleText="Kosinus" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#cos" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="COS" textAlignment="CENTER" GridPane.columnIndex="1">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Tangens" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#tan" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="TAN" textAlignment="CENTER" GridPane.columnIndex="2">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Arkussinus" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#arcsin" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="ARCSIN" textAlignment="CENTER" GridPane.rowIndex="2">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Arkuskosinus" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#arccos" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="ARCCOS" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Arkustangens" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#arctan" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="ARCTAN" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="e Funktion" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#e" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="e" textAlignment="CENTER" GridPane.rowIndex="3">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="pi" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#pi" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="π" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button fx:id="powerB" accessibleText="Potenz" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#power" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="x^y" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Natuerlicher Logarithmus" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#ln" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="LN" textAlignment="CENTER" GridPane.rowIndex="4">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Zehnerlogarithmus" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#log" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="LOG" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Bruch" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#fracture" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="x/y" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Wurzel" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#root" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="x√y" textAlignment="CENTER" GridPane.rowIndex="5">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Hoch Zwei" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#power_2" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="x²" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Quadratwurzel" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#sroot" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="√" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Prozent" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#percent" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="\%" textAlignment="CENTER" GridPane.rowIndex="6">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
+         <Button accessibleText="Fakultaet" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#factorial" prefHeight="70.0" prefWidth="180.0" stylesheets="@application.css" text="n!" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <font>
+               <Font size="40.0" />
+            </font>
+         </Button>
       </children>
    </GridPane>
    <cursor>
