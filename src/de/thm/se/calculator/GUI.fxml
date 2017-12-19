@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -63,22 +64,12 @@
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#clear" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="C" textAlignment="CENTER" GridPane.columnIndex="6">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#clear" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="C" textAlignment="CENTER" GridPane.columnIndex="5">
             <font>
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#deg" prefHeight="70.0" prefWidth="180.0" styleClass="degrad" stylesheets="@application.css" text="DEG" textAlignment="CENTER" GridPane.columnIndex="4">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#rad" prefHeight="70.0" prefWidth="180.0" styleClass="degrad" stylesheets="@application.css" text="RAD" textAlignment="CENTER" GridPane.columnIndex="5">
-            <font>
-               <Font size="40.0" />
-            </font>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#del" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="AC" textAlignment="CENTER" GridPane.columnIndex="8">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#del" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="AC" textAlignment="CENTER" GridPane.columnIndex="4">
             <font>
                <Font size="40.0" />
             </font>
@@ -233,7 +224,7 @@
                <Font size="40.0" />
             </font>
          </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="ANS" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="6">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#ans" prefHeight="70.0" prefWidth="180.0" styleClass="important" stylesheets="@application.css" text="ANS" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="6">
             <font>
                <Font size="40.0" />
             </font>
@@ -253,6 +244,7 @@
                <Font size="40.0" />
             </font>
          </Button>
+         <ToggleButton fx:id="degradButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#degrading" prefHeight="70.0" prefWidth="180.0" styleClass="degrad" stylesheets="@application.css" text="DEG" GridPane.columnIndex="8" />
       </children>
    </GridPane>
    <cursor>

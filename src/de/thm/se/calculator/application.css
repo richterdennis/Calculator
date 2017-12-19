@@ -55,12 +55,23 @@
 .important{
 	-fx-background-color: black;
 	-fx-text-fill: yellow;
+	-fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 5, 4, 3;
+    -fx-font-family: serif;
+    -fx-font-size: 25px;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
 	
 }
+
 
 .degrad{
 	-fx-background-color: yellow;
 	-fx-text-fill: black;
+	-fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 5, 4, 3;
+    -fx-font-family: serif;
+    -fx-font-size: 25px;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
 }
 
 .degrad:hover{
@@ -83,6 +94,18 @@
     -fx-font-weight:bold;
     -fx-text-fill: black;
     -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+.degrad:selected{
+	-fx-background-color: black, red;
+    -fx-background-insets: 1, 5, 3;
+    -fx-background-radius: 5, 4, 3;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 31px;
+    -fx-font-weight:bold;
+    -fx-text-fill: black;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+	
 }
 
 .important{

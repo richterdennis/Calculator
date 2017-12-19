@@ -2,18 +2,19 @@ package de.thm.se.calculator;
 
 import de.thm.se.calculator.calc.Chain;
 import de.thm.se.calculator.calc.Decimal;
+import de.thm.se.calculator.calc.Factorial;
 import de.thm.se.calculator.calc.Fracture;
 import de.thm.se.calculator.calc.Ln;
 import de.thm.se.calculator.calc.Log;
 import de.thm.se.calculator.calc.Operator;
 import de.thm.se.calculator.calc.Power;
 import de.thm.se.calculator.calc.Root;
-import de.thm.se.calculator.calc.Sqrt;
 import de.thm.se.calculator.calc.Trigonometric;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 
 public class Controller{
 	
@@ -24,43 +25,22 @@ public class Controller{
 	@FXML
 	Button powerB;
 	
-	String bas;
-	String exp;
-	
-	String textFieldString ="";
-	
+	@FXML
+	ToggleButton degradButton;
+
 	@FXML
 	Label resultLabel;
 	
 	@FXML
 	Label errorLabel;
 	
+	String result;
+	
 	// Collect the user input and create a calculatable later
 	StringBuilder input = new StringBuilder();
 	
 	// This is the main calculatable
 	Chain mainCalculatable = new Chain();
-	
-/* public void shift() {
-		System.out.println("SHIFT pressed");
-	}
-
-	public void left() {
-		System.out.println("LEFT pressed");
-	}
-
-	public void top() {
-		System.out.println("TOP pressed");
-	}
-
-	public void bottom() {
-		System.out.println("BOTTOM pressed");
-	}
-
-	public void right() {
-		System.out.println("RIGHT pressed");
-	}
-*/
 
 	@FXML
 	public void zero() {
@@ -229,9 +209,7 @@ public class Controller{
 		
 		input.setLength(0);
 		
-		textFieldString = textFieldString + "-";
-		textField.clear();
-		textField.appendText(textFieldString);
+		textField.appendText("-");
 		System.out.println("SUBTRACT pressed");
 	}
 
@@ -240,7 +218,7 @@ public class Controller{
 		mainCalculatable.addLink(new Decimal(input.toString()));
 		
 		String calc = mainCalculatable.toString();
-		String result = mainCalculatable.getValue().toString();
+		result = mainCalculatable.getValue().toString();
 		
 		input.setLength(0);
 		mainCalculatable.clear();
@@ -262,16 +240,6 @@ public class Controller{
 		
 		textField.appendText("%");
 		System.out.println("PERCENT pressed");
-		
-		/* Fracture per = new Fracture(new Decimal(input.toString()), new Decimal(100));
-		System.out.println(per);
-		System.out.println(input);
-		input.setLength(0);
-		System.out.println(input);
-		input.append(per.toString());
-		System.out.println(input);
-		textField.appendText("%");
-		System.out.println("Percent pressed"); */
 	}
 
 	@FXML
@@ -311,25 +279,28 @@ public class Controller{
 	}
 
 	@FXML
-	public void power_e() {
-	}
-
-	@FXML
 	public void factorial() {
-		textField.appendText("!");
-		System.out.println("FACTORIAL pressed");
+		if (input.length() == 0 ) {
+			//errorLabel.setText("ZUNÄCHST BASIS EINGEBEN");
+			}
+			else {
+				Factorial fac = new Factorial(new Decimal(input.toString()));
+				textField.appendText("!");
+				input.setLength(0);
+				input.append(fac.getValue());
+			}
 	}
 	
 	@FXML
 	public void pleft() {
-		input.append('(');
+		input.append("(");
 		textField.appendText("(");
 		System.out.println("PLEFT pressed");
 	}
 
 	@FXML
 	public void pright() {
-		input.append(')');
+		input.append(")");
 		textField.appendText(")");
 		System.out.println("PRIGHT pressed");
 	}
@@ -348,20 +319,28 @@ public class Controller{
 	public void sin() {
 		TextDialogCreator dialog = new TextDialogCreator("Sinus", "Bitte Wert eingeben", "sin");
 		Trigonometric.Sin sin = new Trigonometric.Sin(new Decimal(dialog.getValue()));
-	    System.out.println(sin.getValue().toString());
-	    System.out.println(sin.toString());
-	    input.append(sin.getValue().toString());
-	    textField.appendText(sin.toString());
+	    if (degradButton.getText() == "RAD") {
+		if (input.length() == 0) {		    
+		    input.append(sin.getValue().toString());
+			}
+		    else { multiply();
+		    input.append(sin.getValue().toString());
+		    }
+		    textField.appendText(sin.toString());
+	    }
 	}
 
 	@FXML
 	public void cos() {
 		TextDialogCreator dialog = new TextDialogCreator("Cosinus", "Bitte Wert eingeben", "cos");
 		Trigonometric.Cos cos = new Trigonometric.Cos(new Decimal(dialog.getValue()));
-	    System.out.println(cos.getValue().toString());
-	    System.out.println(cos.toString());
-	    input.append(cos.getValue().toString());
-	    textField.appendText(cos.toString());
+	    
+		if (input.length() == 0) {		    
+		    input.append(cos.getValue().toString());}
+		    else { multiply();
+		    input.append(cos.getValue().toString());
+		    }
+		    textField.appendText(cos.toString());
 		    
 	}
 	
@@ -369,40 +348,53 @@ public class Controller{
 	public void tan() {
 		TextDialogCreator dialog = new TextDialogCreator("Tangens", "Bitte Wert eingeben", "tan");
 		Trigonometric.Tan tan = new Trigonometric.Tan(new Decimal(dialog.getValue()));
-	    System.out.println(tan.getValue().toString());
-	    System.out.println(tan.toString());
-	    input.append(tan.getValue().toString());
-	    textField.appendText(tan.toString());
+	    
+		if (input.length() == 0) {		    
+		    input.append(tan.getValue().toString());}
+		    else { multiply();
+		    input.append(tan.getValue().toString());
+		    }
+		    textField.appendText(tan.toString());
 	}
 	
 	@FXML
 	public void arcsin() {
 		TextDialogCreator dialog = new TextDialogCreator("Arkussinus", "Bitte Wert eingeben", "arcsin");
 		Trigonometric.Arcsin arcsin = new Trigonometric.Arcsin(new Decimal(dialog.getValue()));
-	    System.out.println(arcsin.getValue().toString());
-	    System.out.println(arcsin.toString());
-	    input.append(arcsin.getValue().toString());
-	    textField.appendText(arcsin.toString());
+	    
+		if (input.length() == 0) {		    
+		    input.append(arcsin.getValue().toString());}
+		    else { multiply();
+		    input.append(arcsin.getValue().toString());
+		    }
+		    textField.appendText(arcsin.toString());
 	}
 	
 	@FXML
 	public void arccos() {
 		TextDialogCreator dialog = new TextDialogCreator("Arkuscosinus", "Bitte Wert eingeben", "arccos");
 		Trigonometric.Arccos arccos = new Trigonometric.Arccos(new Decimal(dialog.getValue()));
-	    System.out.println(arccos.getValue().toString());
-	    System.out.println(arccos.toString());
-	    input.append(arccos.getValue().toString());
-	    textField.appendText(arccos.toString());
+
+		if (input.length() == 0) {		    
+		    input.append(arccos.getValue().toString());}
+		    else { multiply();
+		    input.append(arccos.getValue().toString());
+		    }
+		    textField.appendText(arccos.toString());
 	}
+
 	
 	@FXML
 	public void arctan() {
 		TextDialogCreator dialog = new TextDialogCreator("Arkustangens", "Bitte Wert eingeben", "arctan");
 		Trigonometric.Arctan arctan = new Trigonometric.Arctan(new Decimal(dialog.getValue()));
-	    System.out.println(arctan.getValue().toString());
-	    System.out.println(arctan.toString());
-	    input.append(arctan.getValue().toString());
-	    textField.appendText(arctan.toString());	
+	   
+		if (input.length() == 0) {		    
+		    input.append(arctan.getValue().toString());}
+		    else { multiply();
+		    input.append(arctan.getValue().toString());
+		    }
+		    textField.appendText(arctan.toString());
 	}
 	
 	
@@ -411,9 +403,12 @@ public class Controller{
 	public void power() {
 		    DialogCreator test = new DialogCreator("Exponential", "Bitte Exponent und Basis eingeben", "Basis", "Exponent");
 		    Power pow = new Power(new Decimal(test.getOne()), new Decimal(test.getTwo()));
-		    System.out.println(pow.toString());
-		    System.out.println(pow.getValue().toString());
+		    
+		    if (input.length() == 0) {		    
+		    input.append(pow.getValue().toString());}
+		    else { multiply();
 		    input.append(pow.getValue().toString());
+		    }
 		    textField.appendText(pow.toString());
 		    
 		
@@ -438,47 +433,66 @@ public class Controller{
 	public void root() {
 		 DialogCreator test = new DialogCreator("Wurzel", "Bitte Wurzelexponent und Radikant eingeben", "Wurzelexponent", "Radikant");
 		 Root roo = new Root(new Decimal(test.getOne()), new Decimal(test.getTwo()));
-		 System.out.println(roo.toString());
-		 System.out.println(roo.getValue().toString());
-		 input.append(roo.getValue().toString());
-		 textField.appendText(roo.toString());   
+		 
+		 if (input.length() == 0) {		    
+			    input.append(roo.getValue().toString());}
+			    else { multiply();
+			    input.append(roo.getValue().toString());
+			    }
+			    textField.appendText(roo.toString());
 	}
 
 	@FXML
 	public void sroot() {
 		TextDialogCreator dialog = new TextDialogCreator("Quadratwurzel", "Bitte Radikant eingeben", "Radikant");
 		Root sqr = new Root(new Decimal(dialog.getValue()));
-	    System.out.println(sqr.getValue().toString());
-	    System.out.println(sqr.toString());
-	    input.append(sqr.getValue().toString());
-	    textField.appendText(sqr.toString());
+	   
+		if (input.length() == 0) {		    
+		    input.append(sqr.getValue().toString());}
+		    else { multiply();
+		    input.append(sqr.getValue().toString());
+		    }
+		    textField.appendText(sqr.toString());
 	}
 
 	@FXML
 	public void log() {
 		DialogCreator test = new DialogCreator("Logarithmus", "Bitte Basis und Numerus eingeben", "Basis", "Numerus");
 	    Log log = new Log(new Decimal(test.getOne()), new Decimal(test.getTwo()));
-	    System.out.println(log.toString());
-	    System.out.println(log.getValue().toString());
-	    input.append(log.getValue().toString());
-	    textField.appendText(log.toString());
+	    
+	    if (input.length() == 0) {		    
+		    input.append(log.getValue().toString());}
+		    else { multiply();
+		    input.append(log.getValue().toString());
+		    }
+		    textField.appendText(log.toString());
 	}
 
 	@FXML
 	public void ln() {
 		TextDialogCreator dialog = new TextDialogCreator("Limes", "Bitte Wert eingeben", "ln");
 		Ln ln = new Ln(new Decimal(dialog.getValue()));
-	    System.out.println(ln.getValue().toString());
-	    System.out.println(ln.toString());
-	    input.append(ln.getValue().toString());
-	    textField.appendText(ln.toString());
+	    
+		if (input.length() == 0) {		    
+		    input.append(ln.getValue().toString());}
+		    else { multiply();
+		    input.append(ln.getValue().toString());
+		    }
+		    textField.appendText(ln.toString());
 	}
 	
 	@FXML
-	public void deg() {
-	}
-	
+	public void degrading() {
+		if (degradButton.isSelected() == true) {
+			degradButton.setText("DEG");
+		}
+		else {
+			degradButton.setText("RAD");}
+		}
+
 	@FXML
-	public void rad() {
+	public void ans() {
+		textField.appendText(result);
+		input.append(result);
 	}
-}
+	}
