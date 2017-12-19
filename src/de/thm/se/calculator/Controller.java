@@ -3,7 +3,6 @@ package de.thm.se.calculator;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import de.thm.se.calculator.calc.Calculatable;
 import de.thm.se.calculator.calc.Chain;
 import de.thm.se.calculator.calc.Decimal;
 import de.thm.se.calculator.calc.Factorial;
@@ -20,9 +19,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
 
 public class Controller implements Initializable{
 	
@@ -257,7 +253,7 @@ public class Controller implements Initializable{
 		System.out.println(result);
 
 		resultLabel.setText(textField.getText());
-		textField.setText(result);
+		textField.setText(result.substring(0, 29));
 		input.append(result);
 		System.out.println("EQUALS pressed");
 	}
@@ -276,15 +272,14 @@ public class Controller implements Initializable{
 	public void pi() {
 		if(input.length() == 0) {
 			focus.addLink(new Decimal(Math.PI));
-		}
+			}
 		else {
 			focus.addLink(new Decimal(input.toString()));
 			focus.addOperator(Operator.MULTIPLY);
 			focus.addLink(new Decimal(Math.PI));
-			
 			input.setLength(0);
 		}
-			textField.appendText("π");
+		textField.appendText("π");
 		System.out.println("pi pressed");
 	}
 
@@ -292,15 +287,16 @@ public class Controller implements Initializable{
 	public void e() {
 		if(input.length() == 0) {
 			focus.addLink(new Decimal(Math.E));
+			textField.appendText("e");
 		}
 		else {
 			focus.addLink(new Decimal(input.toString()));
 			focus.addOperator(Operator.MULTIPLY);
 			focus.addLink(new Decimal(Math.E));
+			textField.appendText("*e");
 			
 			input.setLength(0);
 		}
-		textField.appendText("e");
 		System.out.println("e pressed");
 
 	}
@@ -532,17 +528,22 @@ public class Controller implements Initializable{
 
 	@FXML
 	public void sroot() {
-		TextDialogCreator dialog = new TextDialogCreator("Quadratwurzel", "Bitte Radikant eingeben", "Radikant");
-		Root sqr = new Root(new Decimal(dialog.getValue()));
-
+		Chain c = new Chain();
+		
 		if(input.length() == 0) {
-			input.append(sqr.getValue().toString());
+			focus.addLink(new Root(c));
 		}
 		else {
-			multiply();
-			input.append(sqr.getValue().toString());
+			focus.addLink(new Decimal(input.toString()));
+			focus.addOperator(Operator.MULTIPLY);
+			focus.addLink(new Root(c));
+			input.setLength(0);
 		}
-		textField.appendText(sqr.toString());
+		
+		c.setParent(focus);
+		focus = c;
+		
+		textField.appendText("sqrt(");
 	}
 
 	@FXML
@@ -579,16 +580,6 @@ public class Controller implements Initializable{
 		focus = c;
 		
 		textField.appendText("ln(");
-	}
-
-	@FXML
-	public void degrading() {
-		if (degradButton.isSelected() == true) {
-			degradButton.setText("RAD");
-		}
-		else {
-			degradButton.setText("DEG");
-		}
 	}
 
 	@FXML
