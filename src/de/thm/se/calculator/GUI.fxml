@@ -173,7 +173,7 @@
                <Font size="40.0" />
             </font>
          </Button>
-         <Button accessibleText="pi" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#pi" prefHeight="70.0" prefWidth="180.0" styleClass="big" stylesheets="@application.css" text="e^x" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <Button accessibleText="pi" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#e_power" prefHeight="70.0" prefWidth="180.0" styleClass="big" stylesheets="@application.css" text="e^x" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
             <font>
                <Font size="40.0" />
             </font>

@@ -251,9 +251,12 @@ public class Controller implements Initializable{
 
 		System.out.println(calc);
 		System.out.println(result);
+		
+		if(result.length() > 30) {
+		result = result.substring(0, 29);}
 
 		resultLabel.setText(textField.getText());
-		textField.setText(result.substring(0, 29));
+		textField.setText(result);
 		input.append(result);
 		System.out.println("EQUALS pressed");
 	}
@@ -580,6 +583,28 @@ public class Controller implements Initializable{
 		focus = c;
 		
 		textField.appendText("ln(");
+	}
+	
+	@FXML
+	public void e_power() {
+		Chain c = new Chain();
+		
+		if(input.length() == 0) {
+			focus.addLink(new Power(new Decimal(Math.E), c));
+		}
+		else {
+			focus.addLink(new Decimal(input.toString()));
+			focus.addOperator(Operator.MULTIPLY);
+			focus.addLink(new Power(new Decimal(Math.E), c));
+			
+			input.setLength(0);
+		}
+		
+		c.setParent(focus);
+		focus = c;
+		
+		textField.appendText("e^");
+		
 	}
 
 	@FXML
