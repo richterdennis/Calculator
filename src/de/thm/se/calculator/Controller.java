@@ -22,18 +22,15 @@ public class Controller{
 	@FXML 
 	TextField textField;
 	
-	@FXML
-	Button powerB;
-	
+	// Toggle Button for deg/rad
 	@FXML
 	ToggleButton degradButton;
 
+	// Label for result of the calculation
 	@FXML
 	Label resultLabel;
 	
-	@FXML
-	Label errorLabel;
-	
+	// Buffer for result
 	String result;
 	
 	// Collect the user input and create a calculatable later
@@ -41,6 +38,7 @@ public class Controller{
 	
 	// This is the main calculatable
 	Chain mainCalculatable = new Chain();
+	
 
 	@FXML
 	public void zero() {
@@ -247,12 +245,12 @@ public class Controller{
 		if (input.length() == 0 ) {
 			
 			input.append(Math.PI);
-			textField.appendText("π");
+			textField.appendText("p");
 			}
 			else {
 				mainCalculatable.addLink(new Decimal(input.toString()));
 				mainCalculatable.addOperator(Operator.MULTIPLY);
-				textField.appendText("*π");
+				textField.appendText("*p");
 				input.setLength(0);
 				input.append(Math.PI);
 			}
@@ -280,10 +278,7 @@ public class Controller{
 
 	@FXML
 	public void factorial() {
-		if (input.length() == 0 ) {
-			//errorLabel.setText("ZUNÄCHST BASIS EINGEBEN");
-			}
-			else {
+		if (input.length() != 0 ) {
 				Factorial fac = new Factorial(new Decimal(input.toString()));
 				textField.appendText("!");
 				input.setLength(0);
@@ -319,7 +314,6 @@ public class Controller{
 	public void sin() {
 		TextDialogCreator dialog = new TextDialogCreator("Sinus", "Bitte Wert eingeben", "sin");
 		Trigonometric.Sin sin = new Trigonometric.Sin(new Decimal(dialog.getValue()));
-	    if (degradButton.getText() == "RAD") {
 		if (input.length() == 0) {		    
 		    input.append(sin.getValue().toString());
 			}
@@ -328,7 +322,6 @@ public class Controller{
 		    }
 		    textField.appendText(sin.toString());
 	    }
-	}
 
 	@FXML
 	public void cos() {
@@ -432,7 +425,7 @@ public class Controller{
 	@FXML
 	public void root() {
 		 DialogCreator test = new DialogCreator("Wurzel", "Bitte Wurzelexponent und Radikant eingeben", "Wurzelexponent", "Radikant");
-		 Root roo = new Root(new Decimal(test.getOne()), new Decimal(test.getTwo()));
+		 Root roo = new Root(new Decimal(test.getTwo()), new Decimal(test.getOne()));
 		 
 		 if (input.length() == 0) {		    
 			    input.append(roo.getValue().toString());}
@@ -484,10 +477,10 @@ public class Controller{
 	@FXML
 	public void degrading() {
 		if (degradButton.isSelected() == true) {
-			degradButton.setText("DEG");
+			degradButton.setText("RAD");
 		}
 		else {
-			degradButton.setText("RAD");}
+			degradButton.setText("DEG");}
 		}
 
 	@FXML
