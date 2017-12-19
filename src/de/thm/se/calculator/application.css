@@ -20,8 +20,99 @@
         linear-gradient(#f6ebbe, #e6c34d);
   */
 
-
 .button{
+	-fx-background-color: black;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 5, 4, 3;
+    -fx-font-family: serif;
+    -fx-font-size: 25px;
+    -fx-text-fill: lime;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+.button:hover{
+    -fx-background-color: lime, black;
+    -fx-background-insets: 1, 5, 3;
+    -fx-background-radius: 5, 4, 3;
+    -fx-font-family: serif;
+    -fx-font-size: 28px;
+    -fx-font-weight:bold;
+    -fx-text-fill: lime;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+.button:pressed{
+    -fx-background-color: white;
+    -fx-background-insets: 1, 5, 3;
+    -fx-background-radius: 5, 4, 3;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 31px;
+    -fx-font-weight:bold;
+    -fx-text-fill: black;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+.important{
+	-fx-background-color: black;
+	-fx-text-fill: yellow;
+	
+}
+
+.degrad{
+	-fx-background-color: yellow;
+	-fx-text-fill: black;
+}
+
+.degrad:hover{
+    -fx-background-color: black, yellow;
+    -fx-background-insets: 1, 5, 3;
+    -fx-background-radius: 5, 4, 3;
+    -fx-font-family: serif;
+    -fx-font-size: 28px;
+    -fx-font-weight:bold;
+    -fx-text-fill: black;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+.degrad:pressed{
+    -fx-background-color: black, yellow;
+    -fx-background-insets: 1, 5, 3;
+    -fx-background-radius: 5, 4, 3;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 31px;
+    -fx-font-weight:bold;
+    -fx-text-fill: black;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+.important{
+	-fx-background-color: black;
+	-fx-text-fill: yellow;
+}
+
+.important:hover{
+    -fx-background-color: yellow, black;
+    -fx-background-insets: 1, 5, 3;
+    -fx-background-radius: 5, 4, 3;
+    -fx-font-family: serif;
+    -fx-font-size: 28px;
+    -fx-font-weight:bold;
+    -fx-text-fill: yellow;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+.degrad:pressed{
+    -fx-background-color: yellow, black;
+    -fx-background-insets: 1, 5, 3;
+    -fx-background-radius: 5, 4, 3;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 31px;
+    -fx-font-weight:bold;
+    -fx-text-fill: yellow;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+.nums{
     -fx-background-color: black, white, white;
     -fx-background-insets: 0, 1, 2;
     -fx-background-radius: 5, 4, 3;
@@ -31,7 +122,8 @@
     -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
 }
 
-.button:hover{
+
+.nums:hover{
     -fx-background-color: black, white, #eaeaea;
     -fx-background-insets: 1, 5, 3;
     -fx-background-radius: 5, 4, 3;
@@ -42,7 +134,7 @@
     -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
 }
 
-.button:pressed{
+.nums:pressed{
     -fx-background-color: black, black, black;
     -fx-background-insets: 1, 5, 3;
     -fx-background-radius: 5, 4, 3;
@@ -53,9 +145,10 @@
     -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
 }
 
-.button Text {
+.nums Text {
     -fx-effect: dropshadow( one-pass-box , rgba(255,255,255,0.5) , 0, 0.0 , 0 , 1);
 }
+
 
 .tilePane{
   	-fx-padding: 10, 10, 10, 10;
