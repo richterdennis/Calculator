@@ -571,7 +571,7 @@ public class Controller {
 			degradButton.setText("RAD");
 		}
 		else {
-			degradButton.setText("DEG");}
+			degradButton.setText("DEG");
 		}
 	}
 
